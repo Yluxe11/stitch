@@ -88,3 +88,25 @@ body {
     text-align: center;
     padding: 20px 0;
 }
+/* تنسيق أيقونات مواقع التواصل */
+.social-icons a {
+    margin: 0 10px;
+    color: #000; /* اللون الأساسي */
+    text-decoration: none;
+    font-size: 24px; /* حجم الأيقونات */
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #FFD700; /* لون ذهبي عند المرور بالفأرة */
+}
+
+/* أيقونات شريط التنقل */
+.nav a i {
+    margin-right: 8px; /* مسافة بين الأيقونة والنص */
+}
+
+/* أيقونات نموذج الطلب */
+button i {
+    margin-right: 5px; /* مسافة بين الأيقونة والنص */
+}
