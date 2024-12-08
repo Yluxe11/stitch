@@ -161,4 +161,11 @@ button i {
 html {
     scroll-behavior: smooth;
 }
+img {
+    max-width: 100%; /* يجعل الصورة تتكيف مع عرض العنصر الحاوي */
+    height: auto; /* يحافظ على نسبة أبعاد الصورة */
+    border-radius: 10px; /* زوايا دائرية */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* تأثير ظل */
+    margin: 10px 0; /* مسافة من الأعلى والأسفل */
+}
 
