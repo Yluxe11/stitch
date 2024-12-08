@@ -168,4 +168,36 @@ img {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* تأثير ظل */
     margin: 10px 0; /* مسافة من الأعلى والأسفل */
 }
+/* تحسين الصور */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+    margin: 10px;
+}
+
+/* تأثير تحريك الصور عند التمرير */
+img:hover {
+    transform: scale(1.05);
+}
+
+/* تصميم الشبكة للصور */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.product {
+    overflow: hidden;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.product:hover {
+    transform: scale(1.02);
+}
 
