@@ -1,0 +1,63 @@
+document.addEventListener('DOMContentLoaded', () => {
+    // Simple product customization modal simulation
+    const customizeButtons = document.querySelectorAll('.btn-small');
+    const body = document.body;
+
+    customizeButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            const productName = e.target.closest('.product').querySelector('h3').textContent;
+            
+            // Create customization modal
+            const modal = document.createElement('div');
+            modal.classList.add('customization-modal');
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <h2>Customize Your ${productName}</h2>
+                    <form id="customization-form">
+                        <div class="form-group">
+                            <label>Color:</label>
+                            <select>
+                                <option>Black</option>
+                                <option>White</option>
+                                <option>Navy Blue</option>
+                                <option>Gray</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Embroidery Style:</label>
+                            <select>
+                                <option>Classic</option>
+                                <option>Modern</option>
+                                <option>Minimalist</option>
+                                <option>Vintage</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Custom Text:</label>
+                            <input type="text" placeholder="Add custom embroidery text">
+                        </div>
+                        <button type="submit" class="btn">Apply Customization</button>
+                    </form>
+                </div>
+            `;
+
+            body.appendChild(modal);
+
+            // Close modal functionality
+            const closeModal = modal.querySelector('.close-modal');
+            closeModal.addEventListener('click', () => {
+                body.removeChild(modal);
+            });
+
+            // Form submission simulation
+            const form = modal.querySelector('#customization-form');
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Customization added to cart!');
+                body.removeChild(modal);
+            });
+        });
+    });
+});
