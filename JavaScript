@@ -1,14 +1,36 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Simple product customization modal simulation
-    const customizeButtons = document.querySelectorAll('.btn-small');
     const body = document.body;
+
+    // **Dark Mode Toggle**
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+
+    // التحقق من التفضيلات المخزنة لوضع الليل
+    if (localStorage.getItem('dark-mode') === 'enabled') {
+        document.body.classList.add('dark-mode');
+    }
+
+    // التبديل بين الوضعين
+    darkModeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+
+        if (document.body.classList.contains('dark-mode')) {
+            localStorage.setItem('dark-mode', 'enabled');
+        } else {
+            localStorage.setItem('dark-mode', 'disabled');
+        }
+    });
+
+    // **Product Customization Modal**
+    const customizeButtons = document.querySelectorAll('.btn-small');
 
     customizeButtons.forEach(button => {
         button.addEventListener('click', (e) => {
             e.preventDefault();
+
+            // تحديد اسم المنتج المطلوب تخصيصه
             const productName = e.target.closest('.product').querySelector('h3').textContent;
-            
-            // Create customization modal
+
+            // إنشاء نافذة التخصيص (Modal)
             const modal = document.createElement('div');
             modal.classList.add('customization-modal');
             modal.innerHTML = `
@@ -45,13 +67,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             body.appendChild(modal);
 
-            // Close modal functionality
+            // **إغلاق النافذة (Modal)**
             const closeModal = modal.querySelector('.close-modal');
             closeModal.addEventListener('click', () => {
                 body.removeChild(modal);
             });
 
-            // Form submission simulation
+            // **محاكاة عملية إرسال النموذج**
             const form = modal.querySelector('#customization-form');
             form.addEventListener('submit', (e) => {
                 e.preventDefault();
