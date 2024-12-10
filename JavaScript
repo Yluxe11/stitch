@@ -4,21 +4,21 @@ document.addEventListener('DOMContentLoaded', () => {
     // **Dark Mode Toggle**
     const darkModeToggle = document.getElementById('dark-mode-toggle');
 
-    // التحقق من التفضيلات المخزنة لوضع الليل
     if (localStorage.getItem('dark-mode') === 'enabled') {
         document.body.classList.add('dark-mode');
     }
 
-    // التبديل بين الوضعين
-    darkModeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
 
-        if (document.body.classList.contains('dark-mode')) {
-            localStorage.setItem('dark-mode', 'enabled');
-        } else {
-            localStorage.setItem('dark-mode', 'disabled');
-        }
-    });
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('dark-mode', 'enabled');
+            } else {
+                localStorage.setItem('dark-mode', 'disabled');
+            }
+        });
+    }
 
     // **Product Customization Modal**
     const customizeButtons = document.querySelectorAll('.btn-small');
@@ -27,10 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', (e) => {
             e.preventDefault();
 
-            // تحديد اسم المنتج المطلوب تخصيصه
             const productName = e.target.closest('.product').querySelector('h3').textContent;
 
-            // إنشاء نافذة التخصيص (Modal)
             const modal = document.createElement('div');
             modal.classList.add('customization-modal');
             modal.innerHTML = `
@@ -67,13 +65,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             body.appendChild(modal);
 
-            // **إغلاق النافذة (Modal)**
             const closeModal = modal.querySelector('.close-modal');
             closeModal.addEventListener('click', () => {
                 body.removeChild(modal);
             });
 
-            // **محاكاة عملية إرسال النموذج**
             const form = modal.querySelector('#customization-form');
             form.addEventListener('submit', (e) => {
                 e.preventDefault();
@@ -82,4 +78,33 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+
+    // **About Modal**
+    const aboutBtn = document.getElementById('about-btn');
+
+    if (aboutBtn) {
+        aboutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            const modal = document.createElement('div');
+            modal.classList.add('customization-modal');
+
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <h2>About Stitch Up Dreams</h2>
+                    <p>Stitch Up Dreams is your destination for luxury embroidered fashion.</p>
+                    <p>We specialize in custom designs that elevate your personal style and prestige.</p>
+                    <p>Explore our collection and customize your embroidery to make every outfit your own.</p>
+                </div>
+            `;
+
+            body.appendChild(modal);
+
+            const closeModal = modal.querySelector('.close-modal');
+            closeModal.addEventListener('click', () => {
+                body.removeChild(modal);
+            });
+        });
+    }
 });
