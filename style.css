@@ -26,7 +26,6 @@ body.dark-mode {
     color: #ffd700;
 }
 
-
 /* Header */
 .header {
     background-color: #111;
@@ -174,22 +173,6 @@ body.dark-mode {
     color: #ffd700;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .nav {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .nav a {
-        margin: 10px 0;
-    }
-
-    .product-grid {
-        grid-template-columns: 1fr;
-    }
-}
 /* Contact Section Styles */
 .contact-section {
     background-color: #f4f4f4;
@@ -211,34 +194,6 @@ body.dark-mode {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.contact-form .form-group {
-    margin-bottom: 20px;
-}
-
-.contact-form label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #333;
-}
-
-.contact-form input,
-.contact-form textarea,
-.contact-form select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    transition: border-color 0.3s;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus,
-.contact-form select:focus {
-    outline: none;
-    border-color: #ffd700;
-}
-
 .contact-form .btn {
     width: 100%;
     padding: 12px;
@@ -254,12 +209,7 @@ body.dark-mode {
     background-color: #ffb900;
 }
 
-@media (max-width: 768px) {
-    .contact-form {
-        padding: 20px;
-    }
-}
-/* تخصيص نافذة المعلومات */
+/* تخصيص نافذة المعلومات (Modal) */
 .customization-modal {
     position: fixed;
     top: 0;
@@ -282,6 +232,7 @@ body.dark-mode {
     width: 90%;
     text-align: center;
     position: relative;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
 .close-modal {
@@ -295,4 +246,10 @@ body.dark-mode {
 
 .close-modal:hover {
     color: red;
+}
+
+/* الوضع الليلي لنافذة المعلومات */
+body.dark-mode .modal-content {
+    background: #222;
+    color: #f0f0f0;
 }
