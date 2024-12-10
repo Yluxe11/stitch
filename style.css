@@ -1,19 +1,31 @@
 /* Global Styles */
+/* الوضع العادي */
 body {
-    font-family: Arial, sans-serif;
     background-color: #f9f9f9;
     color: #333;
-    margin: 0;
-    padding: 0;
-    scroll-behavior: smooth;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-/* Container Helper Class */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+/* الوضع الليلي */
+body.dark-mode {
+    background-color: #121212;
+    color: #f0f0f0;
 }
+
+/* تنسيق زر التبديل */
+.dark-mode-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.dark-mode-btn:hover {
+    color: #ffd700;
+}
+
 
 /* Header */
 .header {
