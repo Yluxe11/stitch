@@ -13,24 +13,22 @@
 <body>
     <!-- Header -->
     <header class="header">
-    <div class="container">
-        <a href="#" class="logo">
-            <img src="file-3WvwPFMioZC2Bzw3wQbH2a.webp" alt="Stitch Up Dreams Logo" class="logo-img">
-        </a>
-        <nav class="nav">
-            <a href="#products"><i class="fas fa-tshirt"></i> Products</a>
-           <a href="#" id="about-btn" class="btn">
-            <i class="fas fa-info-circle"></i> About
-            <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
-        </nav>
-        <!-- Night Mode Toggle -->
-        <button id="dark-mode-toggle" class="dark-mode-btn">
-            <i class="fas fa-moon"></i>
-        </button>
-    </div>
-</header>
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="file-3WvwPFMioZC2Bzw3wQbH2a.webp" alt="Stitch Up Dreams Logo" class="logo-img">
+            </a>
+            <nav class="nav">
+                <a href="#products"><i class="fas fa-tshirt"></i> Products</a>
+                <a href="#" id="about-btn" class="btn"><i class="fas fa-info-circle"></i> About</a>
+                <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+            </nav>
+            <!-- Night Mode Toggle -->
+            <button id="dark-mode-toggle" class="dark-mode-btn">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </header>
 
-    
     <!-- Hero Section -->
     <section id="hero">
         <div class="container">
@@ -39,7 +37,25 @@
             <a href="#products" class="btn">Explore Collection</a>
         </div>
     </section>
-    
+
+    <!-- Customization Form -->
+    <form action="form_handler.php" method="POST" class="customization-form">
+        <input type="hidden" name="product_name" value="Jacket">
+        <label for="color">Color:</label>
+        <select name="color" id="color">
+            <option>Black</option>
+            <option>White</option>
+        </select>
+        <label for="style">Embroidery Style:</label>
+        <select name="style" id="style">
+            <option>Classic</option>
+            <option>Modern</option>
+        </select>
+        <label for="custom_text">Custom Text:</label>
+        <input type="text" name="custom_text" id="custom_text" placeholder="Your Text">
+        <button type="submit">Submit Customization</button>
+    </form>
+
     <!-- Products Section -->
     <section id="products" class="products">
         <div class="container">
@@ -75,8 +91,44 @@
             </div>
         </div>
     </section>
-    
-    <!-- Footer Section -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form id="contact-form" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number (Optional)</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="service-type">Interested In</label>
+                    <select id="service-type" name="service-type">
+                        <option value="">Select a Service</option>
+                        <option value="hoodie">Custom Hoodie</option>
+                        <option value="tshirt">Embroidered T-Shirt</option>
+                        <option value="cap">Personalized Cap</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <p>&copy; 2024 Stitch Up Dreams. All Rights Reserved.</p>
@@ -88,38 +140,4 @@
         </div>
     </footer>
 </body>
-    <section id="contact" class="contact-section">
-    <div class="container">
-        <h2>Contact Us</h2>
-        <form id="contact-form" class="contact-form">
-            <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="phone">Phone Number (Optional)</label>
-                <input type="tel" id="phone" name="phone">
-            </div>
-            <div class="form-group">
-                <label for="message">Your Message</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-            </div>
-            <div class="form-group">
-                <label for="service-type">Interested In</label>
-                <select id="service-type" name="service-type">
-                    <option value="">Select a Service</option>
-                    <option value="hoodie">Custom Hoodie</option>
-                    <option value="tshirt">Embroidered T-Shirt</option>
-                    <option value="cap">Personalized Cap</option>
-                    <option value="other">Other</option>
-                </select>
-            </div>
-            <button type="submit" class="btn">Send Message</button>
-        </form>
-    </div>
-</section>
 </html>
