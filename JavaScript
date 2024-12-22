@@ -1,110 +1,99 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const body = document.body;
-
-    // **Dark Mode Toggle**
+// **Dark Mode Toggle**
+function setupDarkMode() {
     const darkModeToggle = document.getElementById('dark-mode-toggle');
-
     if (localStorage.getItem('dark-mode') === 'enabled') {
         document.body.classList.add('dark-mode');
     }
-
     if (darkModeToggle) {
         darkModeToggle.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
-
-            if (document.body.classList.contains('dark-mode')) {
-                localStorage.setItem('dark-mode', 'enabled');
-            } else {
-                localStorage.setItem('dark-mode', 'disabled');
-            }
+            localStorage.setItem('dark-mode', document.body.classList.contains('dark-mode') ? 'enabled' : 'disabled');
         });
     }
+}
 
-    // **Product Customization Modal**
+// **Product Customization Modal**
+function setupProductCustomization() {
     const customizeButtons = document.querySelectorAll('.btn-small');
-
     customizeButtons.forEach(button => {
         button.addEventListener('click', (e) => {
             e.preventDefault();
-
-            const productName = e.target.closest('.product').querySelector('h3').textContent;
-
-            const modal = document.createElement('div');
-            modal.classList.add('customization-modal');
-            modal.innerHTML = `
-                <div class="modal-content">
-                    <span class="close-modal">&times;</span>
-                    <h2>Customize Your ${productName}</h2>
-                    <form id="customization-form">
-                        <div class="form-group">
-                            <label>Color:</label>
-                            <select>
-                                <option>Black</option>
-                                <option>White</option>
-                                <option>Navy Blue</option>
-                                <option>Gray</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Embroidery Style:</label>
-                            <select>
-                                <option>Classic</option>
-                                <option>Modern</option>
-                                <option>Minimalist</option>
-                                <option>Vintage</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Custom Text:</label>
-                            <input type="text" placeholder="Add custom embroidery text">
-                        </div>
-                        <button type="submit" class="btn">Apply Customization</button>
-                    </form>
-                </div>
-            `;
-
-            body.appendChild(modal);
-
-            const closeModal = modal.querySelector('.close-modal');
-            closeModal.addEventListener('click', () => {
-                body.removeChild(modal);
-            });
-
-            const form = modal.querySelector('#customization-form');
-            form.addEventListener('submit', (e) => {
-                e.preventDefault();
-                alert('Customization added to cart!');
-                body.removeChild(modal);
-            });
+            openCustomizationModal(e.target);
         });
     });
+}
 
-    // **About Modal**
+function openCustomizationModal(button) {
+    const productName = button.closest('.product').querySelector('h3').textContent;
+    const modal = createModal(`Customize Your ${productName}`, `
+        <form id="customization-form">
+            <div class="form-group">
+                <label>Color:</label>
+                <select>
+                    <option>Black</option>
+                    <option>White</option>
+                    <option>Navy Blue</option>
+                    <option>Gray</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Embroidery Style:</label>
+                <select>
+                    <option>Classic</option>
+                    <option>Modern</option>
+                    <option>Minimalist</option>
+                    <option>Vintage</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Custom Text:</label>
+                <input type="text" placeholder="Add custom embroidery text">
+            </div>
+            <button type="submit" class="btn">Apply Customization</button>
+        </form>
+    `);
+    document.body.appendChild(modal);
+
+    modal.querySelector('form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Customization added to cart!');
+        modal.remove();
+    });
+}
+
+// **About Modal**
+function setupAboutModal() {
     const aboutBtn = document.getElementById('about-btn');
-
     if (aboutBtn) {
-        aboutBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-
-            const modal = document.createElement('div');
-            modal.classList.add('customization-modal');
-
-            modal.innerHTML = `
-                <div class="modal-content">
-                    <span class="close-modal">&times;</span>
-                    <h2>About Stitch Up Dreams</h2>
-                    <p>Stitch Up Dreams is your destination for luxury embroidered fashion.</p>
-                    <p>We specialize in custom designs that elevate your personal style and prestige.</p>
-                    <p>Explore our collection and customize your embroidery to make every outfit your own.</p>
-                </div>
-            `;
-
-            body.appendChild(modal);
-
-            const closeModal = modal.querySelector('.close-modal');
-            closeModal.addEventListener('click', () => {
-                body.removeChild(modal);
-            });
+        aboutBtn.addEventListener('click', () => {
+            const modal = createModal('About Stitch Up Dreams', `
+                <p>Stitch Up Dreams is your destination for luxury embroidered fashion.</p>
+                <p>We specialize in custom designs that elevate your personal style and prestige.</p>
+                <p>Explore our collection and customize your embroidery to make every outfit your own.</p>
+            `);
+            document.body.appendChild(modal);
         });
     }
+}
+
+// **Utility: Create Modal**
+function createModal(title, content) {
+    const modal = document.createElement('div');
+    modal.classList.add('customization-modal');
+    modal.innerHTML = `
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>${title}</h2>
+            ${content}
+        </div>
+    `;
+    modal.querySelector('.close-modal').addEventListener('click', () => modal.remove());
+    return modal;
+}
+
+// **Initialize All**
+document.addEventListener('DOMContentLoaded', () => {
+    setupDarkMode();
+    setupProductCustomization();
+    setupAboutModal();
 });
