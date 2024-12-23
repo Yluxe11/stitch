@@ -1,4 +1,7 @@
 /* Global Styles */
+div {
+    height: 80px;
+    }
 body {
     background-image: url('khalfiya.webp');
     background-repeat: no-repeat;
@@ -6,9 +9,6 @@ body {
     background-position: center; 
     background-attachment: fixed; 
 }
-div {
-    height: 80px;
-    }
     
 
 body.dark-mode {
