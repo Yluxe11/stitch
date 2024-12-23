@@ -22,7 +22,7 @@
                 <a href="#" id="about-btn" class="btn"><i class="fas fa-info-circle"></i> About</a>
                 <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
             </nav>
-            <!-- Night Mode Toggle -->
+            <!-- Dark Mode Toggle -->
             <button id="dark-mode-toggle" class="dark-mode-btn">
                 <i class="fas fa-moon"></i>
             </button>
@@ -38,31 +38,13 @@
         </div>
     </section>
 
-    <!-- Customization Form -->
-    <form action="form_handler.php" method="POST" class="customization-form">
-        <input type="hidden" name="product_name" value="Jacket">
-        <label for="color">Color:</label>
-        <select name="color" id="color">
-            <option>Black</option>
-            <option>White</option>
-        </select>
-        <label for="style">Embroidery Style:</label>
-        <select name="style" id="style">
-            <option>Classic</option>
-            <option>Modern</option>
-        </select>
-        <label for="custom_text">Custom Text:</label>
-        <input type="text" name="custom_text" id="custom_text" placeholder="Your Text">
-        <button type="submit">Submit Customization</button>
-    </form>
-
     <!-- Products Section -->
     <section id="products" class="products">
         <div class="container">
             <h2>Our Collection</h2>
             <div class="product-grid">
                 <div class="product">
-                    <img src="saga-city-tee-12.jpg" alt="Luxury Embroidered Hoodie" loading="lazy">
+                    <img src="saga-city-tee-12.jpg" alt="Luxury Embroidered Hoodie" loading="lazy" class="product-image">
                     <h3>Hoodie</h3>
                     <p>Elegant and comfortable embroidered hoodies.</p>
                     <div class="product-details">
@@ -71,7 +53,7 @@
                     </div>
                 </div>
                 <div class="product">
-                    <img src="TSA7FFNDMS_2_390x.webp" alt="Stylish Embroidered T-Shirt" loading="lazy">
+                    <img src="TSA7FFNDMS_2_390x.webp" alt="Stylish Embroidered T-Shirt" loading="lazy" class="product-image">
                     <h3>T-Shirt</h3>
                     <p>High-quality embroidered t-shirts with unique designs.</p>
                     <div class="product-details">
@@ -80,7 +62,7 @@
                     </div>
                 </div>
                 <div class="product">
-                    <img src="71bABEntXUL._AC_UY1000_.jpg" alt="Premium Embroidered Cap" loading="lazy">
+                    <img src="71bABEntXUL._AC_UY1000_.jpg" alt="Premium Embroidered Cap" loading="lazy" class="product-image">
                     <h3>Cap</h3>
                     <p>Premium embroidered caps to complete your look.</p>
                     <div class="product-details">
@@ -139,5 +121,8 @@
             </div>
         </div>
     </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
