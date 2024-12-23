@@ -38,7 +38,7 @@ body.dark-mode {
 .header {
     background-color: #111;
     color: #fff;
-    padding: 15px;
+    padding: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
