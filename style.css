@@ -4,7 +4,6 @@ body {
     background-image: url('khalfiya.webp'); /* إضافة صورة الخلفية */
     background-size: cover; /* لتغطية الصورة كامل الصفحة */
     background-position: center; /* مركز الصورة */
-    color: #333;
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
