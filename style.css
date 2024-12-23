@@ -23,6 +23,16 @@ body.dark-mode {
  
 
 
+/* Dark Mode Toggle */
+.dark-mode-btn {
+    background: none;
+    border: none;
+    color: #111;
+    font-size:
+::contentReference[oaicite:0]{index=0}
+ 
+
+
 /* زر التبديل */
 .dark-mode-btn {
     background: none;
