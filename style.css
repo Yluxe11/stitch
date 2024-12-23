@@ -1,4 +1,4 @@
-/* الوضع العادي */
+/* Global Styles */
 body {
     background-color: #f9f9f9;
     color: #333;
@@ -8,11 +8,20 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* الوضع الليلي */
 body.dark-mode {
     background-color: #121212;
     color: #f0f0f0;
 }
+
+/* Dark Mode Toggle */
+.dark-mode-btn {
+    background: none;
+    border: none;
+    color: #111;
+    font-size:
+::contentReference[oaicite:0]{index=0}
+ 
+
 
 /* زر التبديل */
 .dark-mode-btn {
