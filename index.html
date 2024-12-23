@@ -1,128 +1,152 @@
+<?php
+session_start();
+require_once 'config.php';
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Stitch Up Dreams - Luxury Embroidered Fashion">
-    <meta name="keywords" content="embroidery, custom clothing, luxury fashion, personalized apparel, custom hoodies, embroidered t-shirts">
+    <meta name="keywords" content="embroidery, custom clothing, luxury fashion, personalized apparel">
     <title>Stitch Up Dreams - Custom Luxury Embroidery</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
 </head>
 <body>
-    <div class="khalfiya.webp">
     <header class="header">
         <div class="container">
-            <a href="#" class="logo">
-                <img src="file-3WvwPFMioZC2Bzw3wQbH2a.webp" alt="Stitch Up Dreams Logo" class="logo-img">
+            <a href="index.php" class="logo">
+                <img src="assets/images/logo.webp" alt="Stitch Up Dreams Logo" class="logo-img" width="120" height="60">
             </a>
-            <nav class="nav">
-                <a href="#products"><i class="fas fa-tshirt"></i> Products</a>
-                <a href="#" id="about-btn" class="btn"><i class="fas fa-info-circle"></i> About</a>
+            <nav class="nav" aria-label="Main navigation">
+                <a href="products.php"><i class="fas fa-tshirt"></i> Products</a>
+                <a href="about.php"><i class="fas fa-info-circle"></i> About</a>
                 <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+                <?php if(isset($_SESSION['user_id'])): ?>
+                    <a href="dashboard.php"><i class="fas fa-user"></i> Account</a>
+                    <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                <?php else: ?>
+                    <a href="login.php"><i class="fas fa-sign-in-alt"></i> Login</a>
+                <?php endif; ?>
             </nav>
-            <!-- Dark Mode Toggle -->
-            <button id="dark-mode-toggle" class="dark-mode-btn">
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
                 <i class="fas fa-moon"></i>
             </button>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="hero">
-        <div class="container">
-            <h1>Luxury Embroidered Fashion</h1>
-            <p>Customized to elevate your prestige and style. Every stitch tells a story.</p>
-            <a href="#products" class="btn">Explore Collection</a>
-        </div>
-    </section>
+    <main>
+        <section id="hero" class="hero">
+            <div class="container">
+                <h1>Luxury Embroidered Fashion</h1>
+                <p>Customized to elevate your prestige and style. Every stitch tells a story.</p>
+                <a href="products.php" class="btn">Explore Collection</a>
+            </div>
+        </section>
 
-    <!-- Products Section -->
-    <section id="products" class="products">
-        <div class="container">
-            <h2>Our Collection</h2>
-            <div class="product-grid">
-                <div class="product">
-                    <img src="saga-city-tee-12.jpg" alt="Luxury Embroidered Hoodie" loading="lazy" class="product-image">
-                    <h3>Hoodie</h3>
-                    <p>Elegant and comfortable embroidered hoodies.</p>
-                    <div class="product-details">
-                        <span class="price">$89.99</span>
-                        <a href="#" class="btn btn-small">Customize</a>
-                    </div>
-                </div>
-                <div class="product">
-                    <img src="TSA7FFNDMS_2_390x.webp" alt="Stylish Embroidered T-Shirt" loading="lazy" class="product-image">
-                    <h3>T-Shirt</h3>
-                    <p>High-quality embroidered t-shirts with unique designs.</p>
-                    <div class="product-details">
-                        <span class="price">$49.99</span>
-                        <a href="#" class="btn btn-small">Customize</a>
-                    </div>
-                </div>
-                <div class="product">
-                    <img src="71bABEntXUL._AC_UY1000_.jpg" alt="Premium Embroidered Cap" loading="lazy" class="product-image">
-                    <h3>Cap</h3>
-                    <p>Premium embroidered caps to complete your look.</p>
-                    <div class="product-details">
-                        <span class="price">$39.99</span>
-                        <a href="#" class="btn btn-small">Customize</a>
-                    </div>
+        <section id="products" class="products">
+            <div class="container">
+                <h2>Our Collection</h2>
+                <div class="product-grid">
+                    <?php
+                    $products = $db->query("SELECT * FROM products LIMIT 3");
+                    while($product = $products->fetch_assoc()):
+                    ?>
+                    <article class="product">
+                        <img src="<?php echo htmlspecialchars($product['image_url']); ?>" 
+                             alt="<?php echo htmlspecialchars($product['description']); ?>" 
+                             loading="lazy" class="product-image"
+                             width="300" height="300">
+                        <h3><?php echo htmlspecialchars($product['name']); ?></h3>
+                        <p><?php echo htmlspecialchars($product['description']); ?></p>
+                        <div class="product-details">
+                            <span class="price">$<?php echo number_format($product['price'], 2); ?></span>
+                            <a href="customize.php?id=<?php echo $product['id']; ?>" class="btn btn-small">Customize</a>
+                        </div>
+                    </article>
+                    <?php endwhile; ?>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <form id="contact-form" class="contact-form">
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone Number (Optional)</label>
-                    <input type="tel" id="phone" name="phone">
-                </div>
-                <div class="form-group">
-                    <label for="message">Your Message</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="service-type">Interested In</label>
-                    <select id="service-type" name="service-type">
-                        <option value="">Select a Service</option>
-                        <option value="hoodie">Custom Hoodie</option>
-                        <option value="tshirt">Embroidered T-Shirt</option>
-                        <option value="cap">Personalized Cap</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn">Send Message</button>
-            </form>
-        </div>
-    </section>
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2 id="contact-heading">Contact Us</h2>
+                <form id="contact-form" class="contact-form" action="process_contact.php" method="POST">
+                    <?php if(isset($_SESSION['contact_message'])): ?>
+                        <div class="alert <?php echo $_SESSION['contact_status']; ?>">
+                            <?php 
+                            echo $_SESSION['contact_message'];
+                            unset($_SESSION['contact_message']);
+                            unset($_SESSION['contact_status']);
+                            ?>
+                        </div>
+                    <?php endif; ?>
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required 
+                               minlength="2" maxlength="50"
+                               pattern="[A-Za-z\s]+" 
+                               title="Please enter a valid name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" 
+                               pattern="[0-9]{10}" 
+                               title="Please enter a 10-digit phone number">
+                        <span class="form-hint">Optional, format: 1234567890</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" rows="5" required
+                                  minlength="10" maxlength="500"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="service-type">Interested In</label>
+                        <select id="service-type" name="service_type" required>
+                            <option value="">Select a Service</option>
+                            <?php
+                            $services = $db->query("SELECT * FROM services");
+                            while($service = $services->fetch_assoc()):
+                            ?>
+                            <option value="<?php echo htmlspecialchars($service['id']); ?>">
+                                <?php echo htmlspecialchars($service['name']); ?>
+                            </option>
+                            <?php endwhile; ?>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Stitch Up Dreams. All Rights Reserved.</p>
+            <p>&copy; <?php echo date('Y'); ?> Stitch Up Dreams. All Rights Reserved.</p>
             <div class="social-icons">
-                <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://facebook.com/stitchupdreams" target="_blank" rel="noopener" 
+                   aria-label="Follow us on Facebook">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://instagram.com/stitchupdreams" target="_blank" rel="noopener"
+                   aria-label="Follow us on Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://twitter.com/stitchupdreams" target="_blank" rel="noopener"
+                   aria-label="Follow us on Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="script.js"></script>
+    <script src="assets/js/main.js" defer></script>
 </body>
 </html>
