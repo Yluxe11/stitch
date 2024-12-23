@@ -71,8 +71,7 @@ body.dark-mode {
 }
 
 #hero .btn {
-    background-color: #ffd700;
-    color: #111;
+   
     padding: 15px 30px;
     text-decoration: none;
     border-radius: 5px;
@@ -81,8 +80,7 @@ body.dark-mode {
 }
 
 #hero .btn:hover {
-    background-color: #ffb900;
-}
+   
 
 /* Products Section */
 .products {
