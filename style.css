@@ -37,6 +37,7 @@ body.dark-mode {
 /* Header */
 .header {
     background-color: #111;
+    background-image: url('khalfiya.webp')
     color: #fff;
     padding: 30px;
     display: flex;
