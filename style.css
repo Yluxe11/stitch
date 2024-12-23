@@ -6,6 +6,10 @@ body {
     background-position: center; 
     background-attachment: fixed; 
 }
+div {
+    height: 80px;
+    }
+    
 
 body.dark-mode {
     background-color: #121212;
