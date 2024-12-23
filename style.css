@@ -1,11 +1,10 @@
 /* الوضع العادي */
 body {
-    background-color: #f9f9f9;
+   
     background-image: url('khalfiya.webp'); /* إضافة صورة الخلفية */
     background-size: cover; /* لتغطية الصورة كامل الصفحة */
     background-position: center; /* مركز الصورة */
     font-family: 'Poppins', sans-serif;
-    color: #333;
     margin: 0;
     padding: 0;
     transition: background-color 0.3s, color 0.3s;
@@ -13,9 +12,7 @@ body {
 
 /* الوضع الليلي */
 body.dark-mode {
-    background-color: #121212;
-    color: #f0f0f0;
-    background-image: url('khalfiya.webp'); /* إضافة صورة الخلفية في الوضع الليلي */
+    background-image: url('khalfiya.webp'); 
     background-size: cover;
     background-position: center;
 }
@@ -36,9 +33,7 @@ body.dark-mode {
 
 /* Header */
 .header {
-    background-color: #111;
     background-image: url('khalfiya.webp')
-    color: #fff;
     padding: 30px;
     display: flex;
     justify-content: space-between;
