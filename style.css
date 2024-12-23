@@ -1,35 +1,66 @@
-/* الوضع العادي */
+
+/* خلفية الصفحة الكبيرة */
 body {
-   
-    background-image: url('khalfiya.webp'); /* إضافة صورة الخلفية */
-    background-size: cover; /* لتغطية الصورة كامل الصفحة */
-    background-position: center; /* مركز الصورة */
-    font-family: 'Poppins', sans-serif;
     margin: 0;
-    padding: 0;
-    
+    font-family: 'Arial', sans-serif;
+    background-image: url('large-background.webp'); /* صورة الخلفية الكبيرة */
+    background-size: cover; /* تغطية كاملة */
+    background-position: center;
+    background-attachment: fixed; /* تثبيت الخلفية */
+    color: #333;
+}
+
+/* تنسيق الخلفية الصغيرة للنصوص */
+.text-background {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    background-image: url('small-background.webp'); /* صورة خلفية صغيرة */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white;
+    font-weight: bold;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+    z-index: 1;
+}
+
+/* تحسينات إضافية */
+.header {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* تصميم الأزرار */
+.btn {
+    display: inline-block;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #555;
 }
 
 /* الوضع الليلي */
 body.dark-mode {
-    background-image: url('khalfiya.webp'); 
-    background-size: cover;
-    background-position: center;
+    background-color: #000;
+    color: #fff;
 }
 
-/* زر التبديل */
-.dark-mode-btn {
-    background: none;
-    border: none;
-    color: #111;
-    font-size: 18px;
-    cursor: pointer;
-    transition: color 0.3s;
+body.dark-mode .btn {
+    background-color: #fff;
+    color: #000;
 }
 
-.dark-mode-btn:hover {
-    color: #ffd700;
-}
+
 
 /* Header */
 .header {
