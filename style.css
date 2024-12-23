@@ -59,10 +59,8 @@ body.dark-mode {
 
 /* Hero Section */
 #hero {
-
-    color: #fff;
     text-align: center;
-    padding: 80px 20px;
+    padding: 120px 30px;
 }
 
 #hero h1 {
@@ -76,7 +74,7 @@ body.dark-mode {
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
-    transition: background-color 0.3s;
+   
 }
 
 #hero .btn:hover {
@@ -146,10 +144,9 @@ body.dark-mode {
 
 /* Contact Section */
 .contact-section {
-    background-color: #f4f4f4;
+    
     padding: 50px 0;
 }
-
 .contact-section h2 {
     text-align: center;
     margin-bottom: 30px;
