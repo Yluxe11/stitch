@@ -1,6 +1,6 @@
 /* الوضع العادي */
 body {
-   
+    background-color: #f9f9f9;
     background-image: url('khalfiya.webp'); /* إضافة صورة الخلفية */
     background-size: cover; /* لتغطية الصورة كامل الصفحة */
     background-position: center; /* مركز الصورة */
@@ -45,7 +45,7 @@ body.dark-mode {
 }
 
 .header .logo-img {
-    height: 60px;
+    height: 90px;
     object-fit: cover;
 }
 
