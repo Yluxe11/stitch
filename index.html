@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Stitch Up Dreams - Luxury Embroidered Fashion">
-    <meta name="keywords" content="embroidery, custom clothing, luxury fashion, personalized apparel, custom hoodies, embroidered t-shirts">
-    <title>Stitch Up Dreams - Custom Luxury Embroidery</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Unique Tree Shop - Luxury Clothing Display">
+    <meta name="keywords" content="clothing, luxury, unique, tree design, modern, fashion">
+    <title>Unique Tree Shop</title>
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
@@ -14,75 +14,53 @@
     <!-- Header -->
     <header class="header">
         <div class="container">
-            <a href="#" class="logo">
-                <img src="logo.webp" alt="Stitch Up Dreams Logo" class="logo-img">
-            </a>
+            <h1 class="logo">Unique Tree Shop</h1>
             <nav class="nav">
-                <a href="#collection"><i class="fas fa-tshirt"></i> Collection</a>
-                <a href="#about"><i class="fas fa-info-circle"></i> About</a>
-                <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+                <a href="#tree">Tree</a>
+                <a href="#about">About</a>
             </nav>
         </div>
     </header>
 
-    <!-- Collection Section -->
-    <section id="collection">
-        <div class="container">
-            <h1 class="section-title">Explore Our Luxury Collection</h1>
-            <div class="tree-structure">
-                <div class="category">
-                    <h2>Hoodies</h2>
-                    <div class="product">
-                        <img src="hoodie.jpg" alt="Luxury Hoodie">
-                        <p>Price: $89.99</p>
-                        <button onclick="addToCart('Hoodie', 89.99)">Buy Now</button>
-                    </div>
-                </div>
-                <div class="category">
-                    <h2>T-Shirts</h2>
-                    <div class="product">
-                        <img src="tshirt.jpg" alt="Stylish T-Shirt">
-                        <p>Price: $49.99</p>
-                        <button onclick="addToCart('T-Shirt', 49.99)">Buy Now</button>
-                    </div>
-                </div>
-                <div class="category">
-                    <h2>Caps</h2>
-                    <div class="product">
-                        <img src="cap.jpg" alt="Premium Cap">
-                        <p>Price: $39.99</p>
-                        <button onclick="addToCart('Cap', 39.99)">Buy Now</button>
-                    </div>
-                </div>
+    <!-- Tree Section -->
+    <section id="tree" class="tree-section">
+        <h2>Explore Our Unique Collection</h2>
+        <div class="tree">
+            <div class="branch">
+                <img src="product1.jpg" alt="Luxury Hoodie">
+                <h3>Luxury Hoodie</h3>
+                <p>Elegant and stylish hoodies for all seasons.</p>
+                <button class="btn">Buy Now</button>
+            </div>
+            <div class="branch">
+                <img src="product2.jpg" alt="Designer T-Shirt">
+                <h3>Designer T-Shirt</h3>
+                <p>Premium quality t-shirts with unique designs.</p>
+                <button class="btn">Buy Now</button>
+            </div>
+            <div class="branch">
+                <img src="product3.jpg" alt="Fashion Cap">
+                <h3>Fashion Cap</h3>
+                <p>Trendy caps to complete your stylish look.</p>
+                <button class="btn">Buy Now</button>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <h2>About Stitch Up Dreams</h2>
-            <p>At Stitch Up Dreams, we provide luxury embroidered fashion designed to elevate your style and prestige. Every stitch is crafted with care to ensure the highest quality and uniqueness.</p>
-        </div>
+    <section id="about" class="about-section">
+        <h2>About Us</h2>
+        <p>At Unique Tree Shop, we blend luxury fashion with innovative design. Our tree-inspired layout represents growth, elegance, and a deep connection to our creative roots. Every product we offer is carefully crafted to bring you comfort and style.</p>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <form action="contact.php" method="POST" class="contact-form">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Unique Tree Shop. All Rights Reserved.</p>
+        <div class="social-icons">
+            <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
         </div>
-    </section>
-
-    <script>
-        function addToCart(product, price) {
-            alert(`${product} added to cart for $${price}`);
-        }
-    </script>
+    </footer>
 </body>
 </html>
