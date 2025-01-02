@@ -3,64 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Unique Tree Shop - Luxury Clothing Display">
-    <meta name="keywords" content="clothing, luxury, unique, tree design, modern, fashion">
-    <title>Unique Tree Shop</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="Stitch Up Dreams - Luxury Embroidered Fashion">
+    <meta name="keywords" content="embroidery, custom clothing, luxury fashion, personalized apparel, custom hoodies, embroidered t-shirts">
+    <title>Stitch Up Dreams - Custom Luxury Embroidery</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/webp" href="logo.webp">
 </head>
 <body>
     <!-- Header -->
     <header class="header">
         <div class="container">
-            <h1 class="logo">Unique Tree Shop</h1>
+            <a href="#" class="logo">
+                <img src="logo.webp" alt="Stitch Up Dreams Logo" class="logo-img">
+            </a>
             <nav class="nav">
-                <a href="#tree">Tree</a>
-                <a href="#about">About</a>
+                <a href="#tree"><i class="fas fa-tree"></i> Tree</a>
+                <a href="#about" id="about-btn" class="btn"><i class="fas fa-info-circle"></i> About</a>
             </nav>
+            <!-- Night Mode Toggle -->
+            <button id="dark-mode-toggle" class="dark-mode-btn">
+                <i class="fas fa-moon"></i>
+            </button>
         </div>
     </header>
 
     <!-- Tree Section -->
     <section id="tree" class="tree-section">
-        <h2>Explore Our Unique Collection</h2>
-        <div class="tree">
+        <div class="container">
+            <h2>Our Collection</h2>
             <div class="branch">
-                <img src="product1.jpg" alt="Luxury Hoodie">
-                <h3>Luxury Hoodie</h3>
-                <p>Elegant and stylish hoodies for all seasons.</p>
-                <button class="btn">Buy Now</button>
+                <div class="product">
+                    <img src="7Ala9at.jpg" alt="Bags" loading="lazy">
+                    <h3>Handbags</h3>
+                    <p>Elegant and stylish handbags for every occasion.</p>
+                    <button class="btn">Buy Now</button>
+                </div>
+                <div class="product">
+                    <img src="9mija.jpg" alt="Shirts" loading="lazy">
+                    <h3>Shirts</h3>
+                    <p>High-quality embroidered shirts with unique designs.</p>
+                    <button class="btn">Buy Now</button>
+                </div>
+                <div class="product">
+                    <img src="jecket.jpg" alt="Jackets" loading="lazy">
+                    <h3>Jackets</h3>
+                    <p>Stylish and warm embroidered jackets for all seasons.</p>
+                    <button class="btn">Buy Now</button>
+                </div>
             </div>
             <div class="branch">
-                <img src="product2.jpg" alt="Designer T-Shirt">
-                <h3>Designer T-Shirt</h3>
-                <p>Premium quality t-shirts with unique designs.</p>
-                <button class="btn">Buy Now</button>
+                <div class="product">
+                    <img src="sak.webp" alt="Backpack" loading="lazy">
+                    <h3>Backpacks</h3>
+                    <p>Durable and fashionable backpacks for everyday use.</p>
+                    <button class="btn">Buy Now</button>
+                </div>
+                <div class="product">
+                    <img src="sak1.jpg" alt="Small Bag" loading="lazy">
+                    <h3>Small Bags</h3>
+                    <p>Compact and stylish small bags for essentials.</p>
+                    <button class="btn">Buy Now</button>
+                </div>
+                <div class="product">
+                    <img src="sak2.jpg" alt="Travel Bag" loading="lazy">
+                    <h3>Travel Bags</h3>
+                    <p>Spacious and durable travel bags for all your needs.</p>
+                    <button class="btn">Buy Now</button>
+                </div>
             </div>
             <div class="branch">
-                <img src="product3.jpg" alt="Fashion Cap">
-                <h3>Fashion Cap</h3>
-                <p>Trendy caps to complete your stylish look.</p>
-                <button class="btn">Buy Now</button>
+                <div class="product">
+                    <img src="sak3.jpg" alt="Elegant Bag" loading="lazy">
+                    <h3>Elegant Bags</h3>
+                    <p>Perfect for formal occasions and enhancing your look.</p>
+                    <button class="btn">Buy Now</button>
+                </div>
+                <div class="product">
+                    <img src="sbardila.jpg" alt="Sneakers" loading="lazy">
+                    <h3>Sneakers</h3>
+                    <p>Comfortable and trendy sneakers for everyday wear.</p>
+                    <button class="btn">Buy Now</button>
+                </div>
+                <div class="product">
+                    <img src="tchort.jpg" alt="T-Shirts" loading="lazy">
+                    <h3>T-Shirts</h3>
+                    <p>Casual and embroidered t-shirts with premium quality.</p>
+                    <button class="btn">Buy Now</button>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="about-section">
-        <h2>About Us</h2>
-        <p>At Unique Tree Shop, we blend luxury fashion with innovative design. Our tree-inspired layout represents growth, elegance, and a deep connection to our creative roots. Every product we offer is carefully crafted to bring you comfort and style.</p>
+        <div class="container">
+            <h2>About Us</h2>
+            <p>At Stitch Up Dreams, we create luxury embroidered fashion that speaks to your unique style and prestige. Each piece is crafted with precision and care to tell your story through every stitch.</p>
+        </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2024 Unique Tree Shop. All Rights Reserved.</p>
-        <div class="social-icons">
-            <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-            <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <div class="container">
+            <p>&copy; 2024 Stitch Up Dreams. All Rights Reserved.</p>
+            <div class="social-icons">
+                <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
         </div>
     </footer>
 </body>
 </html>
+
