@@ -15,82 +15,74 @@
     <header class="header">
         <div class="container">
             <a href="#" class="logo">
-                <img src="file-3WvwPFMioZC2Bzw3wQbH2a.webp" alt="Stitch Up Dreams Logo" class="logo-img">
+                <img src="logo.webp" alt="Stitch Up Dreams Logo" class="logo-img">
             </a>
             <nav class="nav">
-                <a href="#products"><i class="fas fa-tshirt"></i> Products</a>
-                <a href="#about" class="btn"><i class="fas fa-info-circle"></i> About</a>
+                <a href="#collection"><i class="fas fa-tshirt"></i> Collection</a>
+                <a href="#about"><i class="fas fa-info-circle"></i> About</a>
                 <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
             </nav>
-            <!-- Night Mode Toggle -->
-            <button id="dark-mode-toggle" class="dark-mode-btn">
-                <i class="fas fa-moon"></i>
-            </button>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="hero">
+    <!-- Collection Section -->
+    <section id="collection">
         <div class="container">
-            <h1 class="text-background">Luxury Embroidered Fashion</h1>
-            <p class="text-background">Customized to elevate your prestige and style. Every stitch tells a story.</p>
-            <a href="#products" class="btn">Explore Collection</a>
-        </div>
-    </section>
-
-    <!-- Products Section -->
-    <section id="products" class="products">
-        <div class="container">
-            <h2>Our Collection</h2>
-            <div class="product-grid">
-                <div class="product">
-                    <img src="saga-city-tee-12.jpg" alt="Luxury Embroidered Hoodie" loading="lazy">
-                    <h3 class="text-background">Hoodie</h3>
-                    <p class="text-background">Elegant and comfortable embroidered hoodies.</p>
-                    <div class="product-details">
-                        <span class="price">$89.99</span>
-                        <a href="#" class="btn btn-small">Customize</a>
+            <h1 class="section-title">Explore Our Luxury Collection</h1>
+            <div class="tree-structure">
+                <div class="category">
+                    <h2>Hoodies</h2>
+                    <div class="product">
+                        <img src="hoodie.jpg" alt="Luxury Hoodie">
+                        <p>Price: $89.99</p>
+                        <button onclick="addToCart('Hoodie', 89.99)">Buy Now</button>
                     </div>
                 </div>
-                <div class="product">
-                    <img src="TSA7FFNDMS_2_390x.webp" alt="Stylish Embroidered T-Shirt" loading="lazy">
-                    <h3 class="text-background">T-Shirt</h3>
-                    <p class="text-background">High-quality embroidered t-shirts with unique designs.</p>
-                    <div class="product-details">
-                        <span class="price">$49.99</span>
-                        <a href="#" class="btn btn-small">Customize</a>
+                <div class="category">
+                    <h2>T-Shirts</h2>
+                    <div class="product">
+                        <img src="tshirt.jpg" alt="Stylish T-Shirt">
+                        <p>Price: $49.99</p>
+                        <button onclick="addToCart('T-Shirt', 49.99)">Buy Now</button>
                     </div>
                 </div>
-                <div class="product">
-                    <img src="71bABEntXUL._AC_UY1000_.jpg" alt="Premium Embroidered Cap" loading="lazy">
-                    <h3 class="text-background">Cap</h3>
-                    <p class="text-background">Premium embroidered caps to complete your look.</p>
-                    <div class="product-details">
-                        <span class="price">$39.99</span>
-                        <a href="#" class="btn btn-small">Customize</a>
+                <div class="category">
+                    <h2>Caps</h2>
+                    <div class="product">
+                        <img src="cap.jpg" alt="Premium Cap">
+                        <p>Price: $39.99</p>
+                        <button onclick="addToCart('Cap', 39.99)">Buy Now</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <!-- About Section -->
+    <section id="about">
         <div class="container">
-            <p>&copy; 2024 Stitch Up Dreams. All Rights Reserved.</p>
-            <div class="social-icons">
-                <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            </div>
+            <h2>About Stitch Up Dreams</h2>
+            <p>At Stitch Up Dreams, we provide luxury embroidered fashion designed to elevate your style and prestige. Every stitch is crafted with care to ensure the highest quality and uniqueness.</p>
         </div>
-    </footer>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form action="contact.php" method="POST" class="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
 
     <script>
-        const darkModeToggle = document.getElementById('dark-mode-toggle');
-        darkModeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-        });
+        function addToCart(product, price) {
+            alert(`${product} added to cart for $${price}`);
+        }
     </script>
 </body>
 </html>
