@@ -139,10 +139,10 @@ footer {
 }
 .company-name {
     font-family: 'Poppins', sans-serif; /* خط شبابي */
-    font-size: 20px; /* حجم الخط */
+    font-size: 30px; /* حجم الخط */
     font-weight: bold; /* يجعل النص غامقًا */
     color: #d4af37; /* نفس لون الذهبي المستخدم */
-    margin-left: 10px; /* مسافة بين النص واللوغو */
+    margin-left: 60px; /* مسافة بين النص واللوغو */
     vertical-align: middle; /* يجعل النص بمحاذاة اللوغو */
     display: inline-block;
 }
@@ -151,3 +151,51 @@ footer {
     font-size: 14px; /* حجم أصغر للاختصار */
     color: #b68d2a; /* لون مختلف قليلاً للاختصار */
 }
+/* Comments Section */
+.comments-section {
+    padding: 50px 20px;
+    background-color: #111;
+    color: #d4af37;
+    text-align: center;
+}
+
+.comments-section h2, .comments-section h3 {
+    color: #d4af37;
+    margin-bottom: 20px;
+}
+
+#comment-form {
+    margin-bottom: 30px;
+}
+
+#comment-input {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #d4af37;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #000;
+}
+
+#comment-input::placeholder {
+    color: #999;
+}
+
+#comment-items {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+#comment-items li {
+    background-color: #000;
+    border: 2px solid #d4af37;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    color: #d4af37;
+    font-size: 16px;
+}
+
