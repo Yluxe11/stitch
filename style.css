@@ -198,4 +198,10 @@ footer {
     color: #d4af37;
     font-size: 16px;
 }
+.price {
+    font-weight: bold;
+    color: #d4af37;
+    margin-top: 10px;
+}
+
 
