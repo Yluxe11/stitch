@@ -156,6 +156,20 @@
         }
     });
 </script>
- 
+    <script>
+    // سعر الذهب العالمي (يمكن تحديثه ديناميكيًا لاحقًا)
+    const goldPricePerGram = 650; // سعر الذهب عيار 21 لكل غرام بالـ MAD
+
+    // حساب سعر المنتجات بناءً على وزنها
+    document.addEventListener("DOMContentLoaded", () => {
+        const priceElements = document.querySelectorAll(".price-value");
+
+        priceElements.forEach((priceElement) => {
+            const weight = parseFloat(priceElement.getAttribute("data-weight")); // جلب الوزن من HTML
+            const productPrice = (goldPricePerGram * weight / 1000).toFixed(2); // حساب السعر
+            priceElement.textContent = productPrice; // تحديث السعر في الصفحة
+        });
+    });
+</script>
 </body>
 </html>
