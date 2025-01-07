@@ -39,21 +39,21 @@
                     <img src="img/7Ala9at.jpg" alt="Bags" loading="lazy">
                     <h3>Handbags</h3>
                     <p>Elegant and stylish handbags for every occasion.</p>
-                    <p class="price">Price: <span class="price-value" data-weight="200"></span> MAD</p>
+                    <p class="price">Price: <span class="price-value" data-weight="2"></span> MAD</p>
                     <button class="btn">Buy Now</button>
                 </div>
                 <div class="product">
                     <img src="img/9mija.jpg" alt="Shirts" loading="lazy">
                     <h3>Shirts</h3>
                     <p>High-quality embroidered shirts with unique designs.</p>
-                    <p class="price">Price: <span class="price-value" data-weight="200"></span> MAD</p>
+                    <p class="price">Price: <span class="price-value" data-weight="2"></span> MAD</p>
                     <button class="btn">Buy Now</button>
                 </div>
                 <div class="product">
                     <img src="img/jecket.jpg" alt="Jackets" loading="lazy">
                     <h3>Jackets</h3>
                     <p>Stylish and warm embroidered jackets for all seasons.</p>
-                    <p class="price">Price: <span class="price-value" data-weight="200"></span> MAD</p>
+                    <p class="price">Price: <span class="price-value" data-weight="2"></span> MAD</p>
                     <button class="btn">Buy Now</button>
                 </div>
             </div>
@@ -62,21 +62,21 @@
                     <img src="img/sak.webp" alt="Backpack" loading="lazy">
                     <h3>Backpacks</h3>
                     <p>Durable and fashionable backpacks for everyday use.</p>
-                    <p class="price">Price: <span class="price-value" data-weight="200"></span> MAD</p>
+                    <p class="price">Price: <span class="price-value" data-weight="2"></span> MAD</p>
                     <button class="btn">Buy Now</button>
                 </div>
                 <div class="product">
                     <img src="img/sak1.jpg" alt="Small Bag" loading="lazy">
                     <h3>Small Bags</h3>
                     <p>Compact and stylish small bags for essentials.</p>
-                    <p class="price">Price: <span class="price-value" data-weight="200"></span> MAD</p>
+                    <p class="price">Price: <span class="price-value" data-weight="2"></span> MAD</p>
                     <button class="btn">Buy Now</button>
                 </div>
                 <div class="product">
                     <img src="img/sak2.jpg" alt="Travel Bag" loading="lazy">
                     <h3>Travel Bags</h3>
                     <p>Spacious and durable travel bags for all your needs.</p>
-                    <p class="price">Price: <span class="price-value" data-weight="200"></span> MAD</p>
+                    <p class="price">Price: <span class="price-value" data-weight="2"></span> MAD</p>
                     <button class="btn">Buy Now</button>
                 </div>
             </div>
@@ -85,21 +85,21 @@
                     <img src="img/sak3.jpg" alt="Elegant Bag" loading="lazy">
                     <h3>Elegant Bags</h3>
                     <p>Perfect for formal occasions and enhancing your look.</p>
-                    <p class="price">Price: <span class="price-value" data-weight="200"></span> MAD</p>
+                    <p class="price">Price: <span class="price-value" data-weight="2"></span> MAD</p>
                     <button class="btn">Buy Now</button>
                 </div>
                 <div class="product">
                     <img src="img/sbardila.jpg" alt="Sneakers" loading="lazy">
                     <h3>Sneakers</h3>
                     <p>Comfortable and trendy sneakers for everyday wear.</p>
-                    <p class="price">Price: <span class="price-value" data-weight="200"></span> MAD</p>
+                    <p class="price">Price: <span class="price-value" data-weight="2"></span> MAD</p>
                     <button class="btn">Buy Now</button>
                 </div>
                 <div class="product">
                     <img src="img/tchort.jpg" alt="T-Shirts" loading="lazy">
                     <h3>T-Shirts</h3>
                     <p>Casual and embroidered t-shirts with premium quality.</p>
-                    <p class="price">Price: <span class="price-value" data-weight="200"></span> MAD</p>
+                    <p class="price">Price: <span class="price-value" data-weight="2"></span> MAD</p>
                     <button class="btn">Buy Now</button>
                 </div>
             </div>
@@ -156,20 +156,41 @@
         }
     });
 </script>
-    <script>
-    // سعر الذهب العالمي (يمكن تحديثه ديناميكيًا لاحقًا)
-    const goldPricePerGram = 650; // سعر الذهب عيار 21 لكل غرام بالـ MAD
+   // سعر الذهب العالمي (يمكن تغييره ديناميكيًا لاحقًا)
+let goldPricePerGram = 820; // سعر الذهب عيار 21 لكل غرام بالدرهم المغربي (MAD)
 
-    // حساب سعر المنتجات بناءً على وزنها
-    document.addEventListener("DOMContentLoaded", () => {
-        const priceElements = document.querySelectorAll(".price-value");
+// تحديث السعر بناءً على الذهب العالمي
+document.addEventListener("DOMContentLoaded", () => {
+    const priceElements = document.querySelectorAll(".price-value");
 
-        priceElements.forEach((priceElement) => {
-            const weight = parseFloat(priceElement.getAttribute("data-weight")); // جلب الوزن من HTML
-            const productPrice = (goldPricePerGram * weight / 1000).toFixed(2); // حساب السعر
-            priceElement.textContent = productPrice; // تحديث السعر في الصفحة
-        });
+    priceElements.forEach((priceElement) => {
+        const weight = parseFloat(priceElement.getAttribute("data-weight")); // جلب الوزن بالجرام من العنصر
+        const productPrice = (goldPricePerGram * weight / 1000).toFixed(2); // حساب السعر (بالكيلوغرام)
+        priceElement.textContent = `${productPrice} MAD`; // تحديث السعر في الصفحة
     });
-</script>
+
+    // خاصية لتغيير السعر يدويًا عبر إدخال جديد
+    const updateButton = document.getElementById("update-gold-price");
+    const inputField = document.getElementById("gold-price-input");
+
+    updateButton.addEventListener("click", () => {
+        const newPrice = parseFloat(inputField.value);
+        if (!isNaN(newPrice) && newPrice > 0) {
+            goldPricePerGram = newPrice; // تحديث السعر
+            priceElements.forEach((priceElement) => {
+                const weight = parseFloat(priceElement.getAttribute("data-weight"));
+                const updatedPrice = (goldPricePerGram * weight / 1000).toFixed(2);
+                priceElement.textContent = `${updatedPrice} MAD`;
+            });
+        } else {
+            alert("المرجو إدخال سعر صالح!");
+        }
+    });
+});
+    <section class="update-price">
+    <h3>تحديث سعر الذهب:</h3>
+    <input type="number" id="gold-price-input" placeholder="أدخل سعر 1 غرام من الذهب" />
+    <button id="update-gold-price" class="btn">تحديث السعر</button>
+</section>
 </body>
 </html>
