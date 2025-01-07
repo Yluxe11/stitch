@@ -139,10 +139,10 @@ footer {
 }
 .company-name {
     font-family: 'Poppins', sans-serif; /* خط شبابي */
-    font-size: 30px; /* حجم الخط */
+    font-size: 60px; /* حجم الخط */
     font-weight: bold; /* يجعل النص غامقًا */
     color: #d4af37; /* نفس لون الذهبي المستخدم */
-    margin-left: 60px; /* مسافة بين النص واللوغو */
+    margin-left: 120px; /* مسافة بين النص واللوغو */
     vertical-align: middle; /* يجعل النص بمحاذاة اللوغو */
     display: inline-block;
 }
