@@ -130,5 +130,23 @@
         </div>
     </div>
 </section>
+   <script>
+    const form = document.getElementById("comment-form");
+    const commentInput = document.getElementById("comment-input");
+    const commentItems = document.getElementById("comment-items");
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault(); // منع تحديث الصفحة عند إرسال النموذج
+        const commentText = commentInput.value.trim(); // الحصول على النص
+        if (commentText) {
+            // إنشاء عنصر جديد للقائمة
+            const listItem = document.createElement("li");
+            listItem.textContent = commentText;
+            commentItems.appendChild(listItem); // إضافة التعليق إلى القائمة
+            commentInput.value = ""; // إفراغ الحقل بعد الإرسال
+        }
+    });
+</script>
+ 
 </body>
 </html>
