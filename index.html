@@ -154,39 +154,11 @@
             commentItems.appendChild(listItem); // إضافة التعليق إلى القائمة
             commentInput.value = ""; // إفراغ الحقل بعد الإرسال
         }
-    });
-</script>
-   // سعر الذهب العالمي (يمكن تغييره ديناميكيًا لاحقًا)
-let goldPricePerGram = 820; // سعر الذهب عيار 21 لكل غرام بالدرهم المغربي (MAD)
 
-// تحديث السعر بناءً على الذهب العالمي
-document.addEventListener("DOMContentLoaded", () => {
-    const priceElements = document.querySelectorAll(".price-value");
+  سعر الذهب العالمي (يمكن تغييره ديناميكيًا لاحقًا)
 
-    priceElements.forEach((priceElement) => {
-        const weight = parseFloat(priceElement.getAttribute("data-weight")); // جلب الوزن بالجرام من العنصر
-        const productPrice = (goldPricePerGram * weight / 1000).toFixed(2); // حساب السعر (بالكيلوغرام)
-        priceElement.textContent = `${productPrice} MAD`; // تحديث السعر في الصفحة
-    });
-
-    // خاصية لتغيير السعر يدويًا عبر إدخال جديد
-    const updateButton = document.getElementById("update-gold-price");
-    const inputField = document.getElementById("gold-price-input");
-
-    updateButton.addEventListener("click", () => {
-        const newPrice = parseFloat(inputField.value);
-        if (!isNaN(newPrice) && newPrice > 0) {
-            goldPricePerGram = newPrice; // تحديث السعر
-            priceElements.forEach((priceElement) => {
-                const weight = parseFloat(priceElement.getAttribute("data-weight"));
-                const updatedPrice = (goldPricePerGram * weight / 1000).toFixed(2);
-                priceElement.textContent = `${updatedPrice} MAD`;
-            });
-        } else {
-            alert("المرجو إدخال سعر صالح!");
-        }
-    });
-});
+     "المرجو إدخال سعر صالح!
+    
     <section class="update-price">
     <h3>تحديث سعر الذهب:</h3>
     <input type="number" id="gold-price-input" placeholder="أدخل سعر 1 غرام من الذهب" />
