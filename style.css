@@ -387,18 +387,18 @@ footer {
     border: 2px solid #d4af37;
     border-radius: 5px;
 }
-/* Popup Styles */
+/* تنسيق الـ Popup */
 .popup {
-    display: none; /* Hidden by default */
+    display: none; /* مخفي افتراضيًا */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5); /* خلفية شبه شفافة */
     justify-content: center;
     align-items: center;
+    z-index: 1000;
 }
 
 .popup-content {
@@ -406,39 +406,31 @@ footer {
     padding: 20px;
     border-radius: 10px;
     text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
     width: 90%;
     max-width: 400px;
-    color: #000;
 }
 
 .close-popup {
     position: absolute;
     top: 10px;
     right: 10px;
-    font-size: 24px;
     cursor: pointer;
-    color: #d4af37;
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
 }
 
-.popup input {
-    width: 80%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.popup button {
+.btn {
     background-color: #d4af37;
     color: #000;
-    padding: 10px 20px;
     border: none;
+    padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
 }
 
-.popup button:hover {
+.btn:hover {
     background-color: #b68d2a;
 }
-
