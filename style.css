@@ -361,3 +361,29 @@ footer {
     background-color: #b68d2a;
 }
 
+.post-content {
+    padding: 50px 20px;
+    background-color: #111;
+    color: #d4af37;
+}
+
+.post-content h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #d4af37;
+}
+
+.post-content p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.post-content img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 20px auto;
+    border: 2px solid #d4af37;
+    border-radius: 5px;
+}
