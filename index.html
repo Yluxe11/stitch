@@ -168,5 +168,47 @@
     <input type="number" id="gold-price-input" placeholder="أدخل سعر 1 غرام من الذهب" />
     <button id="update-gold-price" class="btn">تحديث السعر</button>
 </section>
+     <!-- Popup -->
+<div id="email-popup" class="popup">
+    <div class="popup-content">
+        <span class="close-popup">&times;</span>
+        <h2>احصل على طريقتك لتصبح غنياً</h2>
+        <p>أدخل بريدك الإلكتروني الآن واحصل على عرض حصري لأول 59 مشتركًا فقط!</p>
+        <p><strong>5 أماكن متبقية!</strong></p>
+        <form id="email-form">
+            <input type="email" id="email-input" placeholder="أدخل بريدك الإلكتروني" required>
+            <button type="submit" class="btn">احصل على العرض</button>
+        </form>
+    </div>
+</div>
+   <script>
+        // عناصر الـ Popup
+        const popup = document.getElementById('email-popup');
+        const closePopup = document.querySelector('.close-popup');
+        const emailForm = document.getElementById('email-form');
+
+        // عرض الـ Popup بعد 5 ثوانٍ
+        setTimeout(() => {
+            popup.style.display = 'block';
+        }, 5000);
+
+        // إغلاق الـ Popup عند الضغط على زر الإغلاق
+        closePopup.addEventListener('click', () => {
+            popup.style.display = 'none';
+        });
+
+        // إرسال البريد الإلكتروني
+        emailForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const emailInput = document.getElementById('email-input').value;
+
+            // إرسال الإيميل إلى بريد الدعم (محاكاة)
+            alert(`تم إرسال البريد الإلكتروني: ${emailInput}`);
+
+            // إغلاق الـ Popup
+            popup.style.display = 'none';
+        });
+    </script>      
+    
 </body>
 </html>
