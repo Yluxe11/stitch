@@ -168,45 +168,48 @@
     <input type="number" id="gold-price-input" placeholder="أدخل سعر 1 غرام من الذهب" />
     <button id="update-gold-price" class="btn">تحديث السعر</button>
 </section>
-    <!-- Popup -->
-<div id="email-popup" class="popup">
-    <div class="popup-content">
-        <span class="close-popup">&times;</span>
-        <h2>احصل على طريقتك لتصبح غنياً</h2>
-        <p>أدخل بريدك الإلكتروني الآن واحصل على عرض حصري لأول 59 مشتركًا فقط!</p>
-        <p><strong>5 أماكن متبقية!</strong></p>
-        <form id="email-form">
-            <input type="email" id="email-input" placeholder="أدخل بريدك الإلكتروني" required>
-            <button type="submit" class="btn">احصل على العرض</button>
-        </form>
-    </div>
+   <!-- Popup HTML -->
+<div id="popup" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background-color:white; border:1px solid #ccc; padding:20px; z-index:1000; text-align:center; border-radius:10px; box-shadow:0 0 15px rgba(0,0,0,0.3);">
+    <h3>احصل على أفضل الطرق لتصبح غنيًا!</h3>
+    <p>أدخل بريدك الإلكتروني واحصل على العرض الآن!<br>العرض متاح لأول 59 فقط. تبقى <span id="slots">59</span> مكانًا.</p>
+    <input type="email" id="email" placeholder="أدخل بريدك الإلكتروني" style="width:80%; padding:10px; margin:10px 0;">
+    <button id="submit-email" style="background-color:#d4af37; color:#000; border:none; padding:10px 20px; cursor:pointer; border-radius:5px;">احصل على العرض</button>
+    <button id="close-popup" style="background-color:red; color:white; border:none; padding:5px 10px; cursor:pointer; margin-top:10px; border-radius:5px;">إغلاق</button>
 </div>
 <script>
-    // عناصر الـ Popup
-    const popup = document.getElementById('email-popup');
-    const closePopup = document.querySelector('.close-popup');
-    const emailForm = document.getElementById('email-form');
+    // Function to display popup after 5 seconds
+    window.onload = function () {
+        setTimeout(function () {
+            document.getElementById('popup').style.display = 'block';
+        }, 5000);
+    };
 
-    // عرض الـ Popup بعد 5 ثوانٍ
-    setTimeout(() => {
-        popup.style.display = 'flex'; 
-    // إغلاق الـ Popup عند الضغط على زر الإغلاق
-    closePopup.addEventListener('click', () => {
-        popup.style.display = 'none';
+    // Handle email submission
+    document.getElementById('submit-email').addEventListener('click', function () {
+        const email = document.getElementById('email').value;
+        if (email) {
+            // Update remaining slots
+            const slotsElement = document.getElementById('slots');
+            let slots = parseInt(slotsElement.innerText);
+            if (slots > 0) {
+                slots -= 1;
+                slotsElement.innerText = slots;
+            }
+            // Send email (mock function here)
+            alert(`تم إرسال البريد الإلكتروني: ${email} إلى فريق الدعم!`);
+            // Close popup
+            document.getElementById('popup').style.display = 'none';
+        } else {
+            alert('يرجى إدخال بريد إلكتروني صالح!');
+        }
     });
 
-    // إرسال البريد الإلكتروني
-    emailForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const emailInput = document.getElementById('email-input').value;
-
-        // إرسال الإيميل (محاكاة)
-        alert(`تم إرسال البريد الإلكتروني: ${emailInput}`);
-
-        // إغلاق الـ Popup
-        popup.style.display = 'none';
+    // Handle popup close
+    document.getElementById('close-popup').addEventListener('click', function () {
+        document.getElementById('popup').style.display = 'none';
     });
 </script>
+
 
 </body>
 </html>
